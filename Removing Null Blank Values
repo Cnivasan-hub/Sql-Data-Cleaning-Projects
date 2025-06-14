@@ -1,0 +1,42 @@
+-- 3. Removing null and Blank Values
+-- For removing null values, firstly need to understand the data structure where the null values present
+select * from layoff_staging2
+where total_laid_off is null and percentage_laid_off is null;-- checking whether both column is common null values
+select distinct industry from layoff_staging2;
+
+select * from layoff_staging2
+where industry is null or industry='';-- checking both null and black values availability
+
+select * from layoff_staging2
+where company="carvana";-- finding that particular company 
+
+select * from layoff_staging2 t1
+join layoff_staging2 t2
+on t1.company=t2.company
+where (t1.industry is null or t1.industry='')
+and t1.industry is not null; -- findind the null values present using join
+
+select t1.industry,t2.industry from layoff_staging2 t1
+join layoff_staging2 t2
+on t1.company=t2.company
+where (t1.industry is null or t1.industry='')
+and t1.industry is not null;
+
+update layoff_staging2
+set industry=null
+where industry=''; -- firstly change blank into null values
+
+update layoff_staging2 t1
+join layoff_staging2 t2
+on t1.company=t2.company
+set t1.industry=t2.industry
+where t1.industry is null 
+and t1.industry is not null; -- later we can update here 
+
+select * from layoff_staging2
+where total_laid_off is null and 
+percentage_laid_off is null; -- checking rows with null values
+
+delete from layoff_staging2
+where total_laid_off is null and 
+percentage_laid_off is null; -- deleteing rows with null values
