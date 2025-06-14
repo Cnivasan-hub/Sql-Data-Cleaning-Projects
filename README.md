@@ -1,5 +1,5 @@
 # Sql-Data-Cleaning-Projects.
-Hellow GUys, Here i have done and attached my projects for dat clenaing using sql.
+Hellow Guys, Here i have done and attached my projects for dat clenaing using sql.
 i have used various advanced functions like CTE,JOins,Group by clause,Where clause,Windows functions and 
 it is very interesting using sql for data cleaning.
 
