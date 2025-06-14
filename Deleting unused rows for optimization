@@ -1,0 +1,5 @@
+-- 4. Deleting unsued rows for optimizing data
+select * from layoff_staging2;
+
+alter table layoff_staging2
+drop column rownumber; -- deleting unused column
